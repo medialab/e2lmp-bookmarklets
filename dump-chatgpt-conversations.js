@@ -37,6 +37,7 @@ javascript: (async function () {
 
   const blob = new Blob([csvText], { type: "text/tab-separated-values" });
 
+  // NOTE: not relying on data urls because of security issues
   async function blobToDataUrl(blob) {
     return new Promise((r) => {
       let a = new FileReader();
