@@ -1,0 +1,17 @@
+{
+  "name": "e2lmp-bookmarklets",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Various bookmarklets related to the E2LMP project.",
+  "main": "index.js",
+  "scripts": {
+    "build": "terser -- dump-chatgpt-conversations.js | clipboard",
+    "prettier": "prettier --write '*.js'"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "clipboard-cli": "^4.0.0",
+    "prettier": "^3.3.3",
+    "terser": "^5.33.0"
+  }
+}
