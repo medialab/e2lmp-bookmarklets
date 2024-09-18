@@ -5,12 +5,16 @@
   "description": "Various bookmarklets related to the E2LMP project.",
   "main": "index.js",
   "scripts": {
-    "build": "terser -- dump-chatgpt-conversations.js | clipboard",
+    "build": "rm -rf build && mkdir -p build && touch build/.nojekyll && npm run --silent minify > build/bookmarklet.js && node template.js && rm build/bookmarklet.js",
+    "copy": "npm run --silent minify | clipboard",
+    "deploy": "npm run build && gh-pages -d build",
+    "minify": "terser -- dump-chatgpt-conversations.js",
     "prettier": "prettier --write '*.js'"
   },
   "license": "MIT",
   "devDependencies": {
     "clipboard-cli": "^4.0.0",
+    "gh-pages": "^6.1.1",
     "prettier": "^3.3.3",
     "terser": "^5.33.0"
   }
