@@ -5,12 +5,11 @@ javascript: (async function () {
   async function paginate() {
     let results = [];
     let offset = 0;
-    const limit = 10;
+    const limit = 28;
     const apiUrl = (o) =>
       `https://chatgpt.com/backend-api/conversations?offset=${o}&limit=${limit}&order=updated`;
 
     while (true) {
-      console.log(apiUrl(offset));
       const response = await fetch(apiUrl(offset), {
         credentials: "include",
         headers: {
@@ -31,7 +30,6 @@ javascript: (async function () {
         mode: "cors",
       });
       const data = await response.json();
-      console.log(data);
 
       if (data.items && data.items.length > 0) {
         results = results.concat(data.items);
