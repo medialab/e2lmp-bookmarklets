@@ -53,8 +53,9 @@ javascript: (async function () {
     data
       .map((item) => {
         const url = `https://chatgpt.com/c/${item.id}`;
+        const title = item.title.replace(/\n/g, " ");
 
-        return `${url}\t${item.title}\t${item.create_time}\t${item.update_time}`;
+        return `${url}\t${title}\t${item.create_time}\t${item.update_time}`;
       })
       .join("\n");
 
